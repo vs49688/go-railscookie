@@ -57,7 +57,7 @@ func DecryptSessionCookie(cc CookieCoder, ck *http.Cookie, ignoreValidity bool) 
 func ApplySession(dec CookieCoder, req *http.Request) *http.Request {
 	ck, err := req.Cookie("_session_id")
 	if err != nil {
-		return nil
+		return req
 	}
 
 	ses, err := DecryptSessionCookie(dec, ck, false)
